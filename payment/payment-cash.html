@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+      crossorigin="anonymous"
+    ></script>
+    <title>Payment</title>
+  </head>
+
+  <body>
+    <div class="container payment__container border rounded-3 mt-5 shadow">
+      <div class="row">
+        <div class="col border-end position-relative">
+          <div class="container jo_details--container">
+            <div
+              class="position-absolute top-50 start-50 translate-middle"
+              style="min-width: 70%"
+            >
+              <div class="text-secondary">JO# 12-34567</div>
+              <div
+                class="customer__name text-uppercase fw-bold fs-5 mb-5 text-secondary"
+              >
+                philippine acrylic and chemical corp.
+              </div>
+              <div class="jo__amount--container mx-auto" style="width: 60%">
+                <div class="jo__amount--container row mb-2">
+                  <div class="jo__amount--label text-info text-start col">
+                    JO Amount:
+                  </div>
+                  <div class="jo__amount text-end col text-secondary">
+                    1000.00
+                  </div>
+                </div>
+                <div class="jo__paid--container mt-1 row">
+                  <div class="jo__paid--label text-info text-start col">
+                    Total Paid:
+                  </div>
+                  <div class="jo__paid text-end col text-secondary">
+                    3000.00
+                  </div>
+                </div>
+              </div>
+              <div
+                class="jo__balance text-success mt-5 fw-bold fs-2 text-center"
+              >
+                ₱ 100000.00
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col p-3">
+          <div class="container text-primary payment__form--container">
+            <form
+              action="payment-page2.html"
+              method="post"
+              style="width: 100%"
+              class="container m-4 mx-auto"
+            >
+              <div class="payment__title text-center">Payment Options</div>
+              <div
+                class="checkbox--container container text-center my-2"
+                style="width: 100%"
+              >
+                <span class="form-check mx-3" style="display: inline-block">
+                  <input
+                    checked
+                    class="form-check-input"
+                    type="radio"
+                    name="payment_option"
+                    id="cash_payment"
+                    required
+                  />
+                  <label class="form-check-label" for="cash_payment">
+                    Cash
+                  </label>
+                </span>
+                <span class="form-check mx-3" style="display: inline-block">
+                  <input
+                    class="form-check-input"
+                    type="radio"
+                    name="payment_option"
+                    id="online_payment"
+                  />
+                  <label class="form-check-label" for="online_payment">
+                    Online
+                  </label>
+                </span>
+                <span class="form-check mx-3" style="display: inline-block">
+                  <input
+                    class="form-check-input"
+                    type="radio"
+                    name="payment_option"
+                    id="bank_payment"
+                  />
+                  <label class="form-check-label" for="bank_payment">
+                    Bank Check
+                  </label>
+                </span>
+              </div>
+              <div
+                class="form_control-container container mt-5"
+                style="width: 90%"
+              >
+                <div class="mb-3">
+                  <label for="trans_date" class="form-label">Date</label>
+                  <input
+                    type="date"
+                    class="form-control payment__date"
+                    id="trans_date"
+                    required
+                    max="2022-07-01"
+                  />
+                </div>
+                <div class="mb-3">
+                  <label for="exampleFormControlInput1" class="form-label"
+                    >Tendered Amount</label
+                  >
+                  <input
+                    type="number"
+                    min="1"
+                    class="form-control"
+                    placeholder="Enter Amount"
+                    required
+                  />
+                </div>
+              </div>
+              <div class="text-center mt-5">
+                <input type="submit" class="btn btn-primary" value="Next >" />
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      const paymentDate = document.querySelector(".payment__date");
+
+      paymentDate.max = new Date().toISOString().split("T")[0];
+      paymentDate.value = new Date().toISOString().split("T")[0];
+    </script>
+  </body>
+</html>
